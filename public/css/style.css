@@ -1,0 +1,24 @@
+.navbar-name {
+	font-family: 'Poiret One', cursive;
+	font-size: 2.75rem;
+	padding-left: 1%;
+}
+
+.footer-text {
+	font-family: 'Poiret One', cursive;
+}
+
+a {
+  color:inherit;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
