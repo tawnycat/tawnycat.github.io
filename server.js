@@ -14,7 +14,7 @@ var app = express();
 mongoose.Promise = Promise;
 
 // Connect to the Mongo DB
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/blog";
 
 mongoose.connect(MONGODB_URI, {
   useMongoClient: true
