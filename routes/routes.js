@@ -10,6 +10,8 @@ module.exports = function(app) {
 
     app.get('/blog', controller.blog);
 
-    app.get('/contact', controller.contact)
+    app.get('/contact', controller.contact);
+
+    app.post('/send-email', controller.sendEmail);
 
 };

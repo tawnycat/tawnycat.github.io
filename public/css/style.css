@@ -1,44 +1,44 @@
 .navbar-name {
-	font-family: 'Poiret One', cursive;
-	font-size: 2.75rem;
-	padding-left: 1%;
+    font-family: 'Poiret One', cursive;
+    font-size: 2.75rem;
+    padding-left: 1%;
 }
 
 .footer-text {
-	font-family: 'Poiret One', cursive;
+    font-family: 'Poiret One', cursive;
 }
 
 .footer {
-	margin-top: 0 !important;
+    margin-top: 0 !important;
 }
 
 .navbar {
-	margin: 0 !important;
+    margin: 0 !important;
 }
 
 a {
-  color:inherit;
+    color: inherit;
 }
 
 body {
-	font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-  }
+}
 
-  main {
+main {
     flex: 1 0 auto;
     margin: 0 !important;
-  }
+}
 
 img {
-	max-width: 100%;
+    max-width: 100%;
 }
 
 .darby {
-	background-image: url('/img/darby.png');
-    height:100vh;
+    background-image: url('/img/darby.png');
+    height: 100vh;
     width: 100%;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -49,25 +49,51 @@ img {
 }
 
 .me {
-	min-width: 100%;
-	padding: 5px;
-	border: double 3px;
-	margin: 1%;
+    min-width: 100%;
+    padding: 5px;
+    border: double 3px;
+    margin: 1%;
 }
 
 .about {
-	padding: 10px;
-	margin: 1%;
+    padding: 10px;
+    margin: 1%;
 }
 
 .about-h1 {
-	font-family: 'Poiret One', cursive;
+    font-family: 'Poiret One', cursive;
 }
 
 p {
-	font-size: 1.3rem;
+    font-size: 1.3rem;
 }
 
 .dev-icons {
-	font-size: 4.75rem;
+    font-size: 4.75rem;
+}
+
+.input-field label {
+    color: black;
+}
+
+/* label focus color for name and email */
+ .input-field input:focus + label {
+   color: #d32f2f !important;
+ }
+
+/* label focus underline color for name and email */
+ .row .input-field input:focus {
+   border-bottom: 1px solid #d32f2f !important;
+   box-shadow: 0 1px 0 0 #d32f2f !important
+ }
+
+/* label focus color for message */
+.materialize-textarea:focus:not([readonly])+label {
+    color: #d32f2f !important;
+}
+
+/* label focus underline color for message */
+.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #d32f2f !important;
+    box-shadow: 0 1px 0 0 #d32f2f !important;
 }
