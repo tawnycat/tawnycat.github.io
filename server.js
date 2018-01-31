@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
 var nodemailer = require('nodemailer');
+require('dotenv').config()
 
 // Port
 var PORT = process.env.PORT || 3000;
@@ -15,14 +16,14 @@ var app = express();
 mongoose.Promise = Promise;
 
 // Connect to the Mongo DB
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/blog";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/portfolio";
 
 mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
 
 // Configure middleware
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Handlebars

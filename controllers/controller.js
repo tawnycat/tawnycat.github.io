@@ -1,4 +1,7 @@
-var nodemailer = require("nodemailer");
+var db = require("../models");
+var api_key = process.env.API_KEY;
+var domain = process.env.DOMAIN;
+var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 
 var exports = module.exports = {};
 
@@ -11,7 +14,14 @@ exports.about = function(req, res) {
 }
 
 exports.portfolio = function(req, res) {
-    res.render('portfolio');
+    db.portfolioExamples
+        .find({})
+        .then(function(dbPortfolio) {
+            res.render("portfolio", { portfolioExample: dbPortfolio });
+        })
+        .catch(function(err) {
+            res.json(err);
+        });
 }
 
 exports.blog = function(req, res) {
@@ -24,31 +34,19 @@ exports.contact = function(req, res) {
 
 exports.sendEmail = function(req, res) {
 
-const transport = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-        user: 'tawnyeleanor@gmail.com',
-        pass: '',
-    },
-});
-  //Mail options
-  var mailOptions = {
-      from: req.body.name + ' &lt;' + req.body.email + '&gt;',
-      to: 'tawnyeleanor@gmail.com',
-      subject: 'Website contact form',
-      text: req.body.message
-  };
+    console.log(req);
 
-  transporter.sendMail(mailOptions, function (error, response) {
+    var data = {
+        from: req.body.email,
+        to: 'hello@tawnycat.com',
+        subject: 'Message from ' + req.body.name,
+        text: req.body.message
+    };
 
-      if (error) {
-          console.log(error);
-      }
-
-      else {
-      	console.log("email sent");
-          res.render('home');
-      }
-  });
+    mailgun.messages().send(data, function(error, body) {
+        console.log("body: " + body);
+        console.log("error: " + error);
+        res.render('thanks');
+    });
 
 };

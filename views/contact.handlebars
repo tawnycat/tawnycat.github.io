@@ -1,3 +1,4 @@
+<main>
 <div class="container">
     <div class="row">
         <div class="col m10 offset-m1 s12">
@@ -7,17 +8,17 @@
                 <form class="col s12" action="/send-email" method="post">
                     <div class="row">
                         <div class="input-field col m6 s12">
-                            <input id="name" type="text" class="validate">
+                            <input name="name" type="text" class="validate">
                             <label for="name">Name</label>
                         </div>
                         <div class="input-field col m6 s12">
-                            <input id="email" type="email" class="validate">
+                            <input name="email" type="email" class="validate">
                             <label for="email">Email address</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                          <textarea id="message" class="materialize-textarea"></textarea>
+                          <textarea name="message" class="materialize-textarea"></textarea>
                           <label for="message">Message</label>
                         </div>
                     </div>
@@ -31,3 +32,4 @@
         </div>
     </div>
 </div>
+</main>
