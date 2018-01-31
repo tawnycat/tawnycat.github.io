@@ -26,8 +26,11 @@ var portfolioExampleSchema = new Schema({
   liveLink: {
     type: String,
     required: true
-  }
-});
+  }},
+
+{collection: "portfolioExamples"}
+
+  );
 
 // This creates our model from the above schema, using mongoose's model method
 var portfolioExamples = mongoose.model("portfolioExamples", portfolioExampleSchema);

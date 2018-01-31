@@ -14,9 +14,12 @@ exports.about = function(req, res) {
 }
 
 exports.portfolio = function(req, res) {
+    console.log(db.portfolioExamples.db);
+
     db.portfolioExamples
         .find({})
         .then(function(dbPortfolio) {
+            console.log(dbPortfolio);
             res.render("portfolio", { portfolioExample: dbPortfolio });
         })
         .catch(function(err) {
