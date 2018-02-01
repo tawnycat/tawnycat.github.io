@@ -97,3 +97,12 @@ p {
     border-bottom: 1px solid #d32f2f !important;
     box-shadow: 0 1px 0 0 #d32f2f !important;
 }
+
+.rowMargins {
+    margin-top: 1%;
+}
+
+.portfolioLinks {
+    font-size: 1.3rem;
+    color: #d32f2f;
+}

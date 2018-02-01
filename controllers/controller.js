@@ -2,6 +2,7 @@ var db = require("../models");
 var api_key = process.env.API_KEY;
 var domain = process.env.DOMAIN;
 var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
+var moment = require('moment');
 
 var exports = module.exports = {};
 
@@ -14,12 +15,10 @@ exports.about = function(req, res) {
 }
 
 exports.portfolio = function(req, res) {
-    console.log(db.portfolioExamples.db);
-
     db.portfolioExamples
         .find({})
         .then(function(dbPortfolio) {
-            console.log(dbPortfolio);
+            moment(res.body).format('MMMM Do, YYYY');
             res.render("portfolio", { portfolioExample: dbPortfolio });
         })
         .catch(function(err) {
@@ -28,7 +27,14 @@ exports.portfolio = function(req, res) {
 }
 
 exports.blog = function(req, res) {
-    res.render('blog');
+    db.BlogPost
+        .find({})
+        .then(function(dbBlogPost) {
+            res.render("blog", { blogPost: dbBlogPost });
+        })
+        .catch(function(err) {
+            res.json(err);
+        });
 }
 
 exports.contact = function(req, res) {

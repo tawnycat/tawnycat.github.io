@@ -1,3 +1,4 @@
 module.exports = {
-  portfolioExamples: require("./portfolioExamples")
+  portfolioExamples: require("./portfolioExamples"),
+  BlogPost: require("./BlogPost")
 };
