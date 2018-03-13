@@ -1,14 +1,28 @@
 $(document).ready(function() {
 
-    $(".button-collapse").sideNav();
+    //scrollfire initialization
+
+    var options = [
+        { selector: '.class', offset: 200, callback: customCallbackFunc },
+        {
+            selector: '.other-class',
+            offset: 200,
+            callback: function() {
+                customCallbackFunc();
+            }
+        },
+    ];
+    Materialize.scrollFire(options);
+
+    // icon animation
 
     let time = 1000;
 
     $(".dev-icons").get().forEach(function(icon) {
-    	$(icon).hide();
+        $(icon).hide();
         setTimeout(function() {
-            $(icon).show().addClass('animated zoomIn');
+            $(icon).show().addClass('animated fadeIn');
         }, time);
-        time += 250; 
+        time += 250;
     });
 });
